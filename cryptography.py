@@ -4,11 +4,13 @@ def cesar_cipher(message, key, cipher=True):
 
 	key = key if cipher else -key
 	
-	crypted_message = ""
+	list_of_crypted_chars = []
 	for char in message:
 		crypted_char = chr((ord(char) + key) % 1_114_112)
-		crypted_message += crypted_char
+		list_of_crypted_chars.append(crypted_char)
 
+	crypted_message = "".join(list_of_crypted_chars)
+	
 	return crypted_message
 
 
@@ -24,16 +26,25 @@ def brute_force_cesar_cipher(crypted_message):
 def vigenere_cipher(message, password, cipher=True):
 
 	list_of_keys = [ord(char) for char in password]
-	crypted_message = ""
+	list_of_crypted_chars = []
 
 	for index, char in enumerate(message):
 
 		current_key = list_of_keys[index % len(list_of_keys)]
 		crypted_char = cesar_cipher(message=char, key=current_key, cipher=cipher)
 
-		crypted_message += crypted_char
+		list_of_crypted_chars.append(crypted_char)
 
+	crypted_message = "".join(list_of_crypted_chars)
+	
 	return crypted_message
+
+
+
+
+
+
+
 
 
 
