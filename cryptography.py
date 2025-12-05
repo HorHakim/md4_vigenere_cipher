@@ -58,7 +58,7 @@ def vigenere_cipher(message, password, cipher=True):
 
 
 crypted_message = vigenere_cipher(message="Bonjour, comment ça va ?", password="chocolat123!")
-print(crypted_message)
+print(repr(crypted_message))
 
 initial_message = vigenere_cipher(message=crypted_message, password="chocolat123!", cipher=False)
 print(initial_message)
